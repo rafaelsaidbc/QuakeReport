@@ -15,4 +15,8 @@
 -->
 <resources>
     <string name="app_name">Quake Report</string>
+
+    <!-- Texto padrão para mostrar com a localização do terremoto ("Perto do Pacific-Antarctic Ridge")
+ se não houver distância específica de quilômetro do local primário [CHAR LIMIT=30] -->
+    <string name="near_the">Near the</string>
 </resources>

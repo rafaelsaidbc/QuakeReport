@@ -72,18 +72,22 @@ public final class QueryUtils {
                 JSONObject properties = currentEarthquake.getJSONObject("properties");
                 //especifica que as informações a serem obtidas é da String mag e armazena na
                 //variável magnitude
-                String magnitude = properties.getString("mag");
+                double magnitude = properties.getDouble("mag");
                 //especifica que as informações a serem obtidas é da String place e armazena
                 //na variável location
                 String location = properties.getString("place");
                 //especifica que as informações a serem obtidas é da String time e armazena
                 //na variável time [tempo, exibido em milissegundos a partide de 01/01/1970
                 //marcação de tempo conhecida com UNIX]
-                String time = properties.getString("time");
+                long time = properties.getLong("time");
 
-                //cria um objeto "earthquake" e armazena as informações de magnitude, location
-                //e time
-                Earthquake earthquake = new Earthquake(magnitude, location, time);
+                // Extrai o valor da chave chamada "url"
+                String url = properties.getString("url");
+
+                // Cria um novo objeto {@link Earthquake} com a magnitude, localização, tempo,
+                // e url da resposta JSON.
+                Earthquake earthquake = new Earthquake(magnitude, location, time, url);
+
                 //adiciona o objeto "earthquake" à lista [EarthquakeArray]
                 earthquakes.add(earthquake);
 
